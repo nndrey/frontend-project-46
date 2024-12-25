@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/nndrey/frontend-project-46#readme",
   "dependencies": {
-    "commander": "^12.1.0"
+    "commander": "^12.1.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
