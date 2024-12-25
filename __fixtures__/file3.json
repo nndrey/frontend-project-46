@@ -1,0 +1,10 @@
+{
+    "name": "hexlet",
+    "age": 150,
+    "country": "Russia",
+    "follow": true,
+    "square": 154655255555266,
+    "program": "good",
+    "courses": "different",
+    "teachers": true
+  }
