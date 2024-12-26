@@ -1,5 +1,5 @@
 import path from 'node:path';
-import getParseData from './parseData.js';
+import getParseData from './parsers.js';
 import compare from './compare.js';
 
 const gendiff = (filepath1, filepath2) => {
