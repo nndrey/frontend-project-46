@@ -17,3 +17,9 @@
  ## **`comparison of YAML formats`**
 
  [![asciicast](https://asciinema.org/a/c9EddFKvNo91ChqhpPqXpJb4O.svg)](https://asciinema.org/a/c9EddFKvNo91ChqhpPqXpJb4O)
+
+## **`Default information output format`**
+
+## `stylish`
+
+ [![asciicast](https://asciinema.org/a/LfIuYuOuYJii7QujHJ7isWzKO.svg)](https://asciinema.org/a/LfIuYuOuYJii7QujHJ7isWzKO)

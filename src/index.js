@@ -9,7 +9,6 @@ const gendiff = (filepath1, filepath2) => {
   const pathFile2 = getAbsolutePathFile(filepath2);
   const file1 = getParseData(pathFile1);
   const file2 = getParseData(pathFile2);
-
   return compare(file1, file2);
 };
 
