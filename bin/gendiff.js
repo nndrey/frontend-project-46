@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander';
-import gendiff from '../src/index.js';
-import stylish from '../src/stylish.js';
+import genDiff from '../src/index.js';
 
 program
   .name('gendiff')
@@ -9,12 +8,9 @@ program
   .version('0.0.1')
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format <type>', 'output format', 'stylish')
-  .action((filepath1, filepath2, formater = 'stylish') => {
-    const resultDiff = gendiff(filepath1, filepath2, formater);
-    const style = formater.format;
-    if (style === 'stylish') {
-      console.log(stylish(resultDiff));
-    }
+  .action((filepath1, filepath2, formatName = 'stylish') => {
+    const diff = genDiff(filepath1, filepath2, formatName);
+    console.log(diff);
   });
 
 program.parse();

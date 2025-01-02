@@ -1,15 +1,27 @@
 import path from 'node:path';
 import getParseData from './parsers.js';
 import compare from './compare.js';
+import getStyleFormat from '../formatters/index.js';
+import stylish from '../formatters/stylish.js';
+import plain from '../formatters/plain.js';
 
-const gendiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2, formatName) => {
   const currentDir = process.cwd();
   const getAbsolutePathFile = (pathFile) => path.resolve(currentDir, pathFile);
   const pathFile1 = getAbsolutePathFile(filepath1);
   const pathFile2 = getAbsolutePathFile(filepath2);
   const file1 = getParseData(pathFile1);
   const file2 = getParseData(pathFile2);
-  return compare(file1, file2);
+  const compareTree = compare(file1, file2);
+  const style = getStyleFormat(formatName);
+  switch (style) {
+    case 'stylish':
+      return stylish(compareTree);
+    case 'plain':
+      return plain(compareTree);
+    default:
+      return stylish(compareTree);
+  }
 };
 
-export default gendiff;
+export default genDiff;

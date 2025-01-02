@@ -23,3 +23,11 @@
 ## `stylish`
 
  [![asciicast](https://asciinema.org/a/LfIuYuOuYJii7QujHJ7isWzKO.svg)](https://asciinema.org/a/LfIuYuOuYJii7QujHJ7isWzKO)
+
+## **`You can choose the second format.`**
+### just add the option in the terminal
+
+## `-f plain`
+
+
+ [![asciicast](https://asciinema.org/a/whclHZP3L2xqsNNm1IXCP2ElH.svg)](https://asciinema.org/a/whclHZP3L2xqsNNm1IXCP2ElH)
