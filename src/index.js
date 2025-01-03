@@ -19,6 +19,10 @@ const genDiff = (filepath1, filepath2, formatName) => {
       return stylish(compareTree);
     case 'plain':
       return plain(compareTree);
+    case 'json': {
+      const jsonFormat = plain(compareTree);
+      return JSON.stringify(jsonFormat);
+    }
     default:
       return stylish(compareTree);
   }
