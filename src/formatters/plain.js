@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import isString from '../src/helpers.js';
+import isString from '../helpers.js';
 
 const plain = (diff) => {
   const inner = (tree, pathFile) => {

@@ -11,6 +11,9 @@ const getParseData = (dataPath) => {
   } if (format === '.json') {
     parse = JSON.parse(data);
   }
+  if (format === '.ini') {
+    parse = data;
+  }
   return parse;
 };
 
