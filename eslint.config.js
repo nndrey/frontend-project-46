@@ -51,11 +51,11 @@ export default [
       'import/no-extraneous-dependencies': 'off',
     },
   },
+  {
+    env: {
+      jest: true,
+    },
+    plugins: ['jest'],
+    extends: ['plugin:jest/recommended'],
+  }
 ];
-module.exports = {
-  env: {
-    jest: true,
-  },
-  plugins: ['jest'],
-  extends: ['plugin:jest/recommended'],
-};

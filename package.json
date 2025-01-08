@@ -22,6 +22,7 @@
   "homepage": "https://github.com/nndrey/frontend-project-46#readme",
   "dependencies": {
     "commander": "^12.1.0",
+    "eslint-plugin-jest": "^28.10.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
