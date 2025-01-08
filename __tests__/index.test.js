@@ -13,19 +13,19 @@ test('stylish', () => {
   const file1Path = getFixturePath('file3.yaml');
   const file2Path = getFixturePath('file4.yaml');
   const fileStylish = getParseData(getFixturePath('stylish.ini'));
-  expect(genDiff(file1Path, file2Path, { format: 'stylish' })).toEqual(fileStylish);
+  expect(genDiff(file1Path, file2Path, 'stylish')).toEqual(fileStylish);
 });
 
 test('plain', () => {
   const file1Path = getFixturePath('file3.yaml');
   const file2Path = getFixturePath('file4.yaml');
   const filePlain = getParseData(getFixturePath('plain.ini'));
-  expect(genDiff(file1Path, file2Path, { format: 'plain' })).toEqual(filePlain);
+  expect(genDiff(file1Path, file2Path, 'plain')).toEqual(filePlain);
 });
 
 test('json', () => {
   const file1Path = getFixturePath('file3.yaml');
   const file2Path = getFixturePath('file4.yaml');
   const fileJson = getParseData(getFixturePath('jsonFormat.ini'));
-  expect(genDiff(file1Path, file2Path, { format: 'json' })).toEqual(fileJson);
+  expect(genDiff(file1Path, file2Path, 'json')).toEqual(fileJson);
 });

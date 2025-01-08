@@ -1,10 +1,15 @@
+import _ from 'lodash';
 import stylish from './stylish.js';
 import plain from './plain.js';
 
 const getStyleFormat = (type) => {
-  const format = type ?? { format: 'stylish' };
-  const styleValue = Object.values(format).join();
-  switch (styleValue) {
+  let format;
+  if (_.isObject(type)) {
+    format = Object.values(type).join();
+  } else {
+    format = type;
+  }
+  switch (format) {
     case 'stylish':
       return stylish;
     case 'plain':
