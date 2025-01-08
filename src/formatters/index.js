@@ -3,13 +3,15 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 
 const getStyleFormat = (type) => {
-  let format;
-  if (_.isObject(type)) {
-    format = Object.values(type).join();
-  } else {
-    format = type;
-  }
-  switch (format) {
+  const getFormat = (type) => {
+    if (_.isObject(type)) {
+      return Object.values(type).join();
+    } else {
+      return type;
+    }
+  };
+
+  switch (getFormat(type)) {
     case 'stylish':
       return stylish;
     case 'plain':
