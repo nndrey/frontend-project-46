@@ -3,12 +3,9 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 
 const getStyleFormat = (type) => {
-  const getFormat = (type) => {
-    if (_.isObject(type)) {
-      return Object.values(type).join();
-    } else {
-      return type;
-    }
+  const getFormat = (value) => {
+    if (_.isObject(value)) return Object.values(value).join();
+    return value;
   };
 
   switch (getFormat(type)) {

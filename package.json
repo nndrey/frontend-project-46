@@ -23,6 +23,7 @@
   "dependencies": {
     "commander": "^12.1.0",
     "eslint-plugin-jest": "^28.10.0",
+    "jest-globals": "^0.1.7",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
