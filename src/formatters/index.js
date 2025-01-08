@@ -2,8 +2,8 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 
 const getStyleFormat = (type) => {
-  const style = type.format;
-  switch (style) {
+  const style = type;
+  switch (style.format) {
     case 'stylish':
       return stylish;
     case 'plain':

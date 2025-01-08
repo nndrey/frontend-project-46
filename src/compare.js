@@ -1,53 +1,31 @@
 import _ from 'lodash';
 
-const compare = (file1, file2) => {
-  const getUniqueObject = (obj) => {
+const compare = (content1, content2) => {
+  const getValue = (val) => {
+    if (!_.isPlainObject(val)) return val;
     const result = Object
-      .entries(obj)
+      .entries(val)
       .map(([key, value]) => {
-        if (!_.isObject(value)) return ({ key, type: 'unique', value });
-        return { key, type: 'unique', value: getUniqueObject(value) };
+        if (_.isPlainObject(value)) return { key, value: getValue(value) };
+        return ({ key, value });
       });
     return result;
   };
-  const keys1 = Object.keys(file1);
-  const keys2 = Object.keys(file2);
+  const keys1 = Object.keys(content1);
+  const keys2 = Object.keys(content2);
   const uniqueKeys = _.union(keys1, keys2);
   const sortKey = _.sortBy(uniqueKeys);
   const result = sortKey.map((key) => {
-    if (!Object.hasOwn(file1, key) && !_.isObject(file2[key])) {
+    if (!Object.hasOwn(content1, key)) return { key, type: 'added', value: getValue(content2[key]) };
+    if (!Object.hasOwn(content2, key)) return { key, type: 'deleted', value: getValue(content1[key]) };
+    if (_.isPlainObject(content1[key]) && _.isPlainObject(content2[key])) return { key, type: 'compared', value: compare(content1[key], content2[key]) };
+    if (!_.isEqual(content1[key], content2[key])) {
       return {
-        key, type: 'added', value: file2[key],
+        key, type: 'changed', value1: getValue(content1[key]), value2: getValue(content2[key]),
       };
     }
-    if (!Object.hasOwn(file1, key)) return { key, type: 'added', value: getUniqueObject(file2[key]) };
-    if (!Object.hasOwn(file2, key) && !_.isObject(file1[key])) {
-      return {
-        key, type: 'deleted', value: file1[key],
-      };
-    }
-    if (!Object.hasOwn(file2, key)) return { key, type: 'deleted', value: getUniqueObject(file1[key]) };
-    if (_.isObject(file1[key]) && _.isObject(file2[key])) {
-      return {
-        key, type: 'changed', feature: 'compared', value: compare(file1[key], file2[key]),
-      };
-    }
-    if (file1[key] !== file2[key] && !_.isObject(file1[key]) && !_.isObject(file2[key])) {
-      return {
-        key, type: 'changed', value1: file1[key], value2: file2[key],
-      };
-    }
-    if (_.isObject(file1[key])) {
-      return {
-        key, type: 'changed', feature: 'firstObject', value1: getUniqueObject(file1[key]), value2: file2[key],
-      };
-    }
-    if (_.isObject(file2[key])) {
-      return {
-        key, type: 'changed', feature: 'secondObject', value1: file1[key], value2: getUniqueObject(file2[key]),
-      };
-    }
-    return { key, type: 'unchanged', value: file1[key] };
+    if (_.isEqual(content1[key], content2[key])) return { key, type: 'unchanged', value: getValue(content1[key]) };
+    return null;
   });
   return result;
 };

@@ -23,7 +23,7 @@ test('plain', () => {
   expect(genDiff(file1Path, file2Path, { format: 'plain' })).toEqual(filePlain);
 });
 
-test('plain', () => {
+test('json', () => {
   const file1Path = getFixturePath('file3.yaml');
   const file2Path = getFixturePath('file4.yaml');
   const fileJson = getParseData(getFixturePath('jsonFormat.ini'));
