@@ -2,7 +2,8 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 
 const getStyleFormat = (type) => {
-  const styleValue = Object.values(type).join();
+  const format = type ?? 'stylish';
+  const styleValue = Object.values(format).join();
   switch (styleValue) {
     case 'stylish':
       return stylish;
