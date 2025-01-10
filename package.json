@@ -4,7 +4,7 @@
   "description": "Compares two configuration files and shows a difference",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "npx jest"
   },
   "repository": {
     "type": "git",
