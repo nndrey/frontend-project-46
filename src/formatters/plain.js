@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import isString from '../helpers.js';
+import { isString } from '../helpers.js';
 
 const getDisplayValue = (value) => {
   if (isString(value)) return `'${value}'`;

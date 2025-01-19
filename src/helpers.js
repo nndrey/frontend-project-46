@@ -1,3 +1,6 @@
-const isString = (value) => typeof value === 'string';
+import fs from 'fs';
 
-export default isString;
+const isString = (value) => typeof value === 'string';
+const readFile = (dataPath) => fs.readFileSync(dataPath, 'utf8');
+
+export { isString, readFile };
