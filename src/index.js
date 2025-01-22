@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import path from 'node:path';
 import getParseData from './parsers.js';
 import compare from './compare.js';
@@ -8,10 +9,9 @@ const getAbsolutePathFile = (pathFile) => path.resolve(process.cwd(), pathFile);
 const getFormatFile = (pathFile) => path.extname(pathFile).slice(1);
 
 const genDiff = (filepath1, filepath2, formatName) => {
-  const getStringFormat = (data) => {
-    const stringFormat = Object.values(data || 'stylish').join();
-    if (stringFormat !== 'plain' && stringFormat !== 'json') return 'stylish';
-    return stringFormat;
+  const getStringFormat = (format) => {
+    if (_.isObject(format)) return Object.values(format).join();
+    return format;
   };
   const format = getStringFormat(formatName);
 
