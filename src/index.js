@@ -15,6 +15,7 @@ const genDiff = (filepath1, filepath2, formatName) => {
       if (typeFormat !== 'plain' && typeFormat !== 'json') return 'stylish';
       return typeFormat;
     }
+    if (format !== 'plain' && format !== 'json') return 'stylish';
     return format;
   };
   const format = getFormat(formatName);
