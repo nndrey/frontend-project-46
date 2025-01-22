@@ -1,7 +1,7 @@
 import path from 'node:path';
 import getParseData from './parsers.js';
 import compare from './compare.js';
-import getStyleFormat from './formatters/index.js';
+import formate from './formatters/index.js';
 import { readFile } from './helpers.js';
 
 const getAbsolutePathFile = (pathFile) => path.resolve(process.cwd(), pathFile);
@@ -18,8 +18,7 @@ const genDiff = (filepath1, filepath2, formatName) => {
   const fileContent1 = getParseData(readFile1, formatFile1);
   const fileContent2 = getParseData(readFile2, formatFile2);
   const compareTree = compare(fileContent1, fileContent2);
-  const funcFormater = getStyleFormat(formatName);
-  return funcFormater(compareTree);
+  return formate(compareTree, formatName);
 };
 
 export default genDiff;

@@ -8,7 +8,8 @@ program
   .version('0.0.1')
   .arguments('<filepath1> <filepath2>')
   .option('-f, --format <type>', 'output format', 'stylish')
-  .action((filepath1, filepath2, formatName = 'stylish') => {
+  .action((filepath1, filepath2, format) => {
+    const formatName = Object.values(format).join();
     const diff = genDiff(filepath1, filepath2, formatName);
     console.log(diff);
   });

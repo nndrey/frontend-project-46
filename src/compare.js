@@ -15,7 +15,7 @@ const compare = (content1, content2) => {
       };
     }
     if (_.isEqual(content1[key], content2[key])) return { key, type: 'unchanged', value: content1[key] };
-    return null;
+    throw new Error(`Validation for values: ${content1[key]}, ${content2[key]} is not defined!`);
   });
   return result;
 };

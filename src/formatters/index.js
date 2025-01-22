@@ -1,22 +1,16 @@
-import _ from 'lodash';
 import stylish from './stylish.js';
 import plain from './plain.js';
 
-const getStyleFormat = (type) => {
-  const getFormat = (value) => {
-    if (_.isObject(value)) return Object.values(value).join();
-    return value;
-  };
-
-  switch (getFormat(type)) {
+const formate = (data, type) => {
+  switch (type) {
     case 'stylish':
-      return stylish;
+      return stylish(data);
     case 'plain':
-      return plain;
+      return plain(data);
     case 'json':
-      return JSON.stringify;
+      return JSON.stringify(data);
     default:
-      return stylish;
+      throw new Error(`Unknown format status: ${type}!`);
   }
 };
-export default getStyleFormat;
+export default formate;
