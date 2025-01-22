@@ -8,6 +8,13 @@ const getAbsolutePathFile = (pathFile) => path.resolve(process.cwd(), pathFile);
 const getFormatFile = (pathFile) => path.extname(pathFile).slice(1);
 
 const genDiff = (filepath1, filepath2, formatName) => {
+  const getStringFormat = (data) => {
+    const stringFormat = Object.values(data).join();
+    if (stringFormat !== 'plain' && stringFormat !== 'json') return 'stylish';
+    return stringFormat;
+  };
+  const format = getStringFormat(formatName);
+
   const pathFile1 = getAbsolutePathFile(filepath1);
   const pathFile2 = getAbsolutePathFile(filepath2);
   const readFile1 = readFile(pathFile1);
@@ -18,7 +25,7 @@ const genDiff = (filepath1, filepath2, formatName) => {
   const fileContent1 = getParseData(readFile1, formatFile1);
   const fileContent2 = getParseData(readFile2, formatFile2);
   const compareTree = compare(fileContent1, fileContent2);
-  return formate(compareTree, formatName);
+  return formate(compareTree, format);
 };
 
 export default genDiff;

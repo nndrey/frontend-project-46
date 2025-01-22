@@ -23,7 +23,7 @@ test.each([
   [file5JsonPath, file6JsonPath, stylishBigFile],
   [file3YamlPath, file6JsonPath, stylishBigFile],
 ])('format stylish', (a, b, expected) => {
-  expect(genDiff(a, b, 'stylish')).toBe(expected);
+  expect(genDiff(a, b, { format: 'stylish' })).toBe(expected);
 }, 1000);
 
 test.each([
@@ -31,7 +31,7 @@ test.each([
   [file5JsonPath, file6JsonPath, plainBigFile],
   [file3YamlPath, file6JsonPath, plainBigFile],
 ])('format plain', (a, b, expected) => {
-  expect(genDiff(a, b, 'plain')).toBe(expected);
+  expect(genDiff(a, b, { format: 'plain' })).toBe(expected);
 }, 1000);
 
 test.each([
@@ -39,5 +39,5 @@ test.each([
   [file5JsonPath, file6JsonPath, jsonBigFile],
   [file3YamlPath, file6JsonPath, jsonBigFile],
 ])('format json', (a, b, expected) => {
-  expect(genDiff(a, b, 'json')).toBe(expected);
+  expect(genDiff(a, b, { format: 'json' })).toBe(expected);
 }, 1000);
