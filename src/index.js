@@ -9,11 +9,15 @@ const getAbsolutePathFile = (pathFile) => path.resolve(process.cwd(), pathFile);
 const getFormatFile = (pathFile) => path.extname(pathFile).slice(1);
 
 const genDiff = (filepath1, filepath2, formatName) => {
-  const getStringFormat = (format) => {
-    if (_.isObject(format)) return Object.values(format).join();
+  const getFormat = (format) => {
+    if (_.isObject(format)) {
+      const typeFormat = Object.values(format || {}).join();
+      if (typeFormat !== 'plain' && typeFormat !== 'json') return 'stylish';
+      return typeFormat;
+    }
     return format;
   };
-  const format = getStringFormat(formatName);
+  const format = getFormat(formatName);
 
   const pathFile1 = getAbsolutePathFile(filepath1);
   const pathFile2 = getAbsolutePathFile(filepath2);
