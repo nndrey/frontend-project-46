@@ -9,7 +9,7 @@ const getFormatFile = (pathFile) => path.extname(pathFile).slice(1);
 
 const genDiff = (filepath1, filepath2, formatName) => {
   const getStringFormat = (data) => {
-    const stringFormat = Object.values(data).join();
+    const stringFormat = Object.values(data || 'stylish').join();
     if (stringFormat !== 'plain' && stringFormat !== 'json') return 'stylish';
     return stringFormat;
   };
