@@ -23,7 +23,7 @@ const stylish = (diff) => {
 
     const getDisplayValueChanged = (key, value1, value2, ind) => {
       if (_.isObject(value1)) { return `${ind}- ${key}: ${getValue(value1, depth)}\n${ind}+ ${key}: ${value2}`; }
-      if (_.isObject(value2)) { return `${ind}- ${key}: ${value1}\n${ind}+ ${key}: ${getValue(value2, depth)}\n${indentEnd}}`; }
+      if (_.isObject(value2)) { return `${ind}- ${key}: ${value1}\n${ind}+ ${key}: ${getValue(value2, depth)}`; }
       return `${ind}- ${key}: ${value1}\n${ind}+ ${key}: ${value2}`;
     };
 
