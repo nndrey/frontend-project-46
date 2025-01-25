@@ -16,7 +16,7 @@ const plain = (diff) => {
         case 'added': return `Property '${resultPath}' was added with value: ${getDisplayValue(obj.value)}`;
         case 'deleted': return `Property '${resultPath}' was removed`;
         case 'changed': return `Property '${resultPath}' was updated. From ${getDisplayValue(obj.value1)} to ${getDisplayValue(obj.value2)}`;
-        case 'compared': return inner(obj.value, `${pathFile}${key}.`);
+        case 'nested': return inner(obj.value, `${pathFile}${key}.`);
         default:
           return [];
       }
